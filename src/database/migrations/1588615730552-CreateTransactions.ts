@@ -44,12 +44,12 @@ export default class CreateTransactions1588615730552
     await queryRunner.createForeignKey(
       'transactions',
       new TableForeignKey({
-        name: 'TransactionCategory',
         columnNames: ['category_id'],
-        referencedTableName: 'categories',
         referencedColumnNames: ['id'],
-        onDelete: 'SET NULL',
+        referencedTableName: 'categories',
+        name: 'TransactionCategory',
         onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
       }),
     );
   }

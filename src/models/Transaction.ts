@@ -27,15 +27,15 @@ class Transaction {
   @Column()
   category_id: string;
 
-  @ManyToOne(() => Category)
-  @JoinColumn({ name: 'category_id' })
-  category: Category;
-
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @ManyToOne(() => Category, category => category.transaction)
+  @JoinColumn({ name: 'category_id' })
+  category: Category;
 }
 
 export default Transaction;
